@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Epic_Customer_ProductDiscovery.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="epic-customer-product-discovery">Epic: Customer Product Discovery</h1>
+<h2 id="business-context">Business Context</h2>
+<p>This epic focuses on enabling customers to discover and explore athletic performance footwear products. As a new brand testing market demand, the product discovery experience must effectively showcase the unique value proposition of our athletic shoes to sports enthusiasts.</p>
+<h2 id="business-value">Business Value</h2>
+<ul>
+<li>Enable customers to find products that match their athletic needs</li>
+<li>Showcase product features and specifications that differentiate our brand</li>
+<li>Support market validation by tracking customer interest and engagement</li>
+<li>Provide essential product information to support purchase decisions</li>
+</ul>
+<h2 id="scope">Scope</h2>
+<p><strong>In Scope:</strong></p>
+<ul>
+<li>Product catalog browsing and filtering</li>
+<li>Product detail pages with specifications</li>
+<li>Product search functionality</li>
+<li>Category navigation for athletic shoe types</li>
+</ul>
+<p><strong>Out of Scope:</strong></p>
+<ul>
+<li>Advanced recommendation engine</li>
+<li>Product comparison features</li>
+<li>Customer reviews and ratings</li>
+<li>Video content or 360° product views</li>
+</ul>
+<h2 id="user-stories">User Stories</h2>
+<h3 id="us001-browse-product-catalog">US001: Browse Product Catalog</h3>
+<p><strong>As a</strong> customer<br>
+<strong>I want to</strong> browse the available athletic shoe catalog<br>
+<strong>So that</strong> I can see what products are available for my sport</p>
+<p><strong>Acceptance Criteria:</strong></p>
+<ul>
+<li>Catalog displays all available athletic shoe products</li>
+<li>Products are organized by sport category (running, training, basketball, etc.)</li>
+<li>Each product shows key information: name, price, main image</li>
+<li>Pagination or infinite scroll for large catalogs</li>
+<li>Products can be sorted by price, newest, or popularity</li>
+</ul>
+<h3 id="us002-view-product-details">US002: View Product Details</h3>
+<p><strong>As a</strong> customer<br>
+<strong>I want to</strong> view detailed specifications for a specific shoe<br>
+<strong>So that</strong> I can evaluate if it meets my performance needs</p>
+<p><strong>Acceptance Criteria:</strong></p>
+<ul>
+<li>Product detail page includes multiple product images</li>
+<li>Detailed specifications: weight, cushioning type, support level, materials</li>
+<li>Available sizes and colors clearly displayed</li>
+<li>Price and stock status information</li>
+<li>Key performance benefits highlighted</li>
+<li>Size guide link for reference</li>
+</ul>
+<h3 id="us003-search-for-products">US003: Search for Products</h3>
+<p><strong>As a</strong> customer<br>
+<strong>I want to</strong> search for shoes by name or sport type<br>
+<strong>So that</strong> I can quickly find relevant products</p>
+<p><strong>Acceptance Criteria:</strong></p>
+<ul>
+<li>Search bar available on all catalog pages</li>
+<li>Search by product name, sport type, or key features</li>
+<li>Search results display relevant products with basic info</li>
+<li>Search filters for size, price range, and sport category</li>
+<li>&quot;No results&quot; state with helpful suggestions</li>
+</ul>
+<h3 id="us004-filter-by-category">US004: Filter by Category</h3>
+<p><strong>As a</strong> customer<br>
+<strong>I want to</strong> filter products by athletic category<br>
+<strong>So that</strong> I can find shoes specific to my sport</p>
+<p><strong>Acceptance Criteria:</strong></p>
+<ul>
+<li>Category navigation: Running, Training, Basketball, CrossFit, etc.</li>
+<li>Filter by multiple categories simultaneously</li>
+<li>Clear indication of active filters</li>
+<li>Easy filter reset functionality</li>
+<li>Product count updates based on selected filters</li>
+</ul>
+<h2 id="business-rules">Business Rules</h2>
+<ul>
+<li>Products must show accurate stock availability</li>
+<li>Pricing must be consistent across all product displays</li>
+<li>Product specifications must be accurate and comprehensive</li>
+<li>Out-of-stock products should be clearly marked but still visible</li>
+<li>New products should be highlighted appropriately</li>
+</ul>
+<h2 id="success-metrics">Success Metrics</h2>
+<ul>
+<li>Product page views per session</li>
+<li>Time spent on product detail pages</li>
+<li>Search usage rate and success rate</li>
+<li>Filter usage patterns</li>
+<li>Click-through rate from catalog to product details</li>
+</ul>
+
+</body>
+</html>
